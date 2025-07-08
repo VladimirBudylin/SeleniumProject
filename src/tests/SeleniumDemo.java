@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +30,7 @@ public class SeleniumDemo {
     public void tearDown() {driver.quit();}
 
     @Test
+    @DisplayName(value = "Проверка поисковой строки")
     public void search(){
         String input = "Selenium";
         WebElement searchField = driver.findElement(By.cssSelector("#sb_form_q"));

@@ -35,11 +35,12 @@ public class SeleniumDemo {
     @DisplayName(value = "Проверка поисковой строки")
     public void search(){
         String input = "Selenium";
-        By seashFieldCss = By.cssSelector("")
-        WebElement searchField = driver.findElement(By.cssSelector("#sb_form_q"));
+        By seashFieldCss;
+        seashFieldCss = By.cssSelector("#sb_form_q");
+        WebElement searchField = driver.findElement(seashFieldCss);
         searchField.sendKeys(input);
         searchField.submit();
-        WebElement searchPageField = driver.findElement(By.cssSelector("#sb_form_q"));
+        WebElement searchPageField = driver.findElement(seashFieldCss);
         assertEquals(input,searchPageField.getAttribute("value"), "Элемент не найден");
     }
 }

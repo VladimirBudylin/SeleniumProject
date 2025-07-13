@@ -27,17 +27,19 @@ public class SeleniumDemo {
     }
 
     @AfterEach
-    public void tearDown() {driver.quit();}
+    public void tearDown() {
+        driver.quit();
+    }
 
     @Test
     @DisplayName(value = "Проверка поисковой строки")
     public void search(){
         String input = "Selenium";
+        By seashFieldCss = By.cssSelector("")
         WebElement searchField = driver.findElement(By.cssSelector("#sb_form_q"));
         searchField.sendKeys(input);
         searchField.submit();
-
         WebElement searchPageField = driver.findElement(By.cssSelector("#sb_form_q"));
-        assertEquals(input,searchPageField.getAttribute("value"));
+        assertEquals(input,searchPageField.getAttribute("value"), "Элемент не найден");
     }
 }
